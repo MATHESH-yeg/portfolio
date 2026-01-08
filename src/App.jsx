@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Twitter, ArrowRight, ExternalLink } from 'lucide-react';
 import { FaReact, FaPython, FaJava, FaJs, FaHtml5, FaCss3Alt, FaBootstrap, FaAws, FaShieldAlt } from 'react-icons/fa';
 import { SiTailwindcss, SiDjango, SiMongodb, SiMysql, SiPostman, SiGooglecloud } from 'react-icons/si';
+import ErrorBoundary from './ErrorBoundary';
 
 // Fallback component since the external model likely failed to load
 // Luxury Abstract Background Component
@@ -102,13 +103,16 @@ const App = () => {
 
     return (
         <div className="portfolio">
+
             {/* Background Layer */}
             <div className="canvas-container">
-                <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-                    <Suspense fallback={null}>
-                        <Scene />
-                    </Suspense>
-                </Canvas>
+                <ErrorBoundary>
+                    <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+                        <Suspense fallback={null}>
+                            <Scene />
+                        </Suspense>
+                    </Canvas>
+                </ErrorBoundary>
             </div>
 
             {/* Hero Section */}
@@ -124,10 +128,10 @@ const App = () => {
                                 Full Stack Developer
                             </span>
                             <h1 style={{ marginTop: '0.5rem' }}>
-                                Matheshwaran <span style={{ color: 'var(--text-muted)', fontFamily: 'Cormorant Garamond', fontStyle: 'italic', textTransform: 'none' }}>A S</span>
+                                Matheshwaran <span style={{ color: 'var(--text-muted)', fontStyle: 'italic', textTransform: 'none' }}>A S</span>
                             </h1>
 
-                            <div className="hero-tech-stack" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', marginBottom: '3rem', color: 'var(--platinum)', fontSize: '1.2rem', fontFamily: 'Cinzel', letterSpacing: '0.1em' }}>
+                            <div className="hero-tech-stack" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', marginBottom: '3rem', color: 'var(--platinum)', fontSize: '1.2rem', letterSpacing: '0.1em' }}>
                                 <span>AI Engineering</span>
                                 <span style={{ color: 'var(--primary)' }}>/</span>
                                 <span>Web Development</span>
@@ -141,11 +145,11 @@ const App = () => {
 
                             <div className="hero-actions" style={{ display: 'flex', gap: '2rem', marginTop: '2rem', alignItems: 'center' }}>
                                 <a href="#contact" className="cta-btn" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                    Execute Vision <ArrowRight size={18} />
+                                    Resume <ArrowRight size={18} />
                                 </a>
                                 <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-                                    <a href="#" style={{ color: 'var(--text-muted)', transition: '0.3s' }} className="social-icon"><Github size={24} /></a>
-                                    <a href="#" style={{ color: 'var(--text-muted)', transition: '0.3s' }} className="social-icon"><Linkedin size={24} /></a>
+                                    <a href="https://github.com/MATHESH-yeg" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', transition: '0.3s' }} className="social-icon"><Github size={27} /></a>
+                                    <a href="https://www.linkedin.com/in/matheshwaran-a-s-290450297" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', transition: '0.3s' }} className="social-icon"><Linkedin size={27} /></a>
                                 </div>
                             </div>
                         </motion.div>
@@ -190,7 +194,7 @@ const App = () => {
             {/* Projects Section */}
             <section className="projects">
                 <div className="container">
-                    <motion.h2 {...fadeInUp} style={{ marginBottom: '3rem' }}>Selected Projects</motion.h2>
+                    <motion.h2 {...fadeInUp} style={{ marginBottom: '1.5rem' }}>Selected Projects</motion.h2>
                     <div className="projects-grid">
                         {projects.map((project, index) => (
                             <motion.div
@@ -218,7 +222,7 @@ const App = () => {
             {/* Education Section */}
             <section className="education">
                 <div className="container">
-                    <motion.h2 {...fadeInUp} style={{ marginBottom: '2rem' }}>Education</motion.h2>
+                    <motion.h2 {...fadeInUp} style={{ marginBottom: '1rem' }}>Education</motion.h2>
                     <motion.div {...fadeInUp} className="glass" style={{ borderLeft: '4px solid var(--primary)' }}>
                         <h3 style={{ fontSize: '1.8rem', color: '#fff', marginBottom: '0.5rem' }}>B.E Computer Science Engineering</h3>
                         <h4 style={{ fontSize: '1.3rem', color: 'var(--text-muted)', fontWeight: 400 }}>PSNA College of Engineering and Technology</h4>
@@ -235,7 +239,7 @@ const App = () => {
                         className="glass"
                         style={{ textAlign: 'center', padding: '6rem 2rem', background: 'radial-gradient(circle at center, #1a1a1a 0%, #000 100%)' }}
                     >
-                        <h2 className="contact-title">Let's work together</h2>
+                        <h2 className="contact-title" style={{ marginBottom: '0.5rem' }}>Let's work together</h2>
                         <p style={{ margin: '0 auto 2.5rem', fontSize: '1.3rem', color: 'var(--text-muted)' }}>Feel free to reach out for collaborations or opportunities.</p>
 
                         <a href="mailto:matheshwaranmathesh432@gmail.com" className="contact-email-btn">

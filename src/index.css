@@ -8,7 +8,7 @@
 
     --dominant: #050505;
     /* 60% */
-    --secondary: #E5E4E2;
+    --secondary: #fffdf8;
     /* 30% */
     --accent: #00A651;
     /* 10% */
@@ -19,7 +19,7 @@
     /* Silver borders */
 
     --text-main: var(--secondary);
-    --text-muted: #888888;
+    --text-muted: #e7e4e4;
     /* Darker shade of secondary for hierarchy */
 
     --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -32,7 +32,9 @@
 }
 
 body {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    /* Increased from default */
     background-color: var(--dominant);
     color: var(--text-main);
     overflow-x: hidden;
@@ -40,7 +42,7 @@ body {
     letter-spacing: 0.02em;
     /* 60% Dominance: The Void */
     background-image: radial-gradient(circle at 50% 0%, #1a1a1a, var(--dominant) 80%),
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.01'/%3E%3C/svg%3E");
 }
 
 h1,
@@ -48,9 +50,10 @@ h2,
 h3,
 h4,
 .btn-text {
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     /* Cinematic/Luxury Headers */
-    font-weight: 700;
+    font-weight: 900;
+    /* Extra Bold specifically for headers */
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
@@ -72,7 +75,7 @@ h4,
 
 section {
     min-height: 100vh;
-    padding: 8rem 2rem;
+    padding: 4rem 2rem;
     display: flex;
     align-items: center;
 }
@@ -144,8 +147,20 @@ p {
 
 @media (max-width: 768px) {
     section {
-        padding: 6rem 1.5rem;
+        padding: 3rem 1.5rem;
     }
+}
+
+/* Specific Hero adjustments */
+.hero {
+    padding-bottom: 2rem;
+    min-height: auto;
+    /* Allow it to shrink to fit content */
+}
+
+.skills {
+    padding-top: 0rem;
+    /* Reduced from 8rem to tighten gap */
 }
 
 /* New Styles */
@@ -179,7 +194,7 @@ p {
 }
 
 .skill-category {
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .skill-category h3 {
