@@ -191,7 +191,7 @@ const App = () => {
             <section className="projects">
                 <div className="container">
                     <motion.h2 {...fadeInUp} style={{ marginBottom: '3rem' }}>Selected Projects</motion.h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.5rem' }}>
+                    <div className="projects-grid">
                         {projects.map((project, index) => (
                             <motion.div
                                 key={index}
