@@ -84,7 +84,7 @@ section {
 }
 
 h1 {
-    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-size: clamp(3rem, 7vw, 5.5rem);
     line-height: 1.1;
     margin-bottom: 2.5rem;
     /* 30% Secondary: Silver Gradient Text */
@@ -270,6 +270,20 @@ p {
     color: #fff;
 }
 
+/* Responsive Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+/* 
+   ----------------------------------------
+   COMPREHENSIVE MEDIA QUERIES 
+   ----------------------------------------
+*/
+
+/* Tablet Landscape / Small Laptops (Max Width: 1024px) */
 @media (max-width: 1024px) {
     section {
         padding: 6rem 2rem;
@@ -278,8 +292,13 @@ p {
     h1 {
         font-size: 4rem;
     }
+
+    .container {
+        max-width: 95%;
+    }
 }
 
+/* Tablets / Medium Screens (Max Width: 900px) */
 @media (max-width: 900px) {
     .hero-content {
         grid-template-columns: 1fr;
@@ -289,7 +308,12 @@ p {
 
     .profile-photo-container {
         order: -1;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .profile-photo {
+        width: 300px;
+        height: 300px;
     }
 
     .hero-tech-stack {
@@ -309,7 +333,12 @@ p {
     }
 }
 
+/* Tablets Portrait / Large Phones (Max Width: 768px) */
 @media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
     section {
         padding: 4rem 1.5rem;
     }
@@ -322,71 +351,12 @@ p {
         font-size: 3rem;
     }
 
-    .profile-photo {
-        width: 250px;
-        height: 250px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2.2rem;
-        margin-bottom: 1.5rem;
+    .projects-grid {
+        grid-template-columns: 1fr;
+        /* Single column for better readability */
+        gap: 2rem;
     }
 
-    p {
-        font-size: 1.1rem;
-    }
-
-    .cta-btn {
-        padding: 0.8rem 2rem;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        gap: 1.5rem !important;
-    }
-
-    .profile-photo {
-        width: 200px;
-        height: 200px;
-    }
-
-    /* Make skill tags smaller on mobile */
-    .skill-tag {
-        padding: 0.6rem 1rem;
-        font-size: 0.75rem;
-    }
-}
-
-/* Contact Section Specifics */
-.contact-title {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.contact-email-btn {
-    display: inline-block;
-    padding: 1.2rem 3rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #000;
-    background-color: #fff;
-    border-radius: 50px;
-    text-decoration: none;
-    margin-top: 1rem;
-    transition: transform 0.3s;
-    max-width: 100%;
-}
-
-.contact-email-btn:hover {
-    transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
     .contact-title {
         font-size: 2.5rem;
     }
@@ -395,45 +365,78 @@ p {
         padding: 1rem 2rem;
         font-size: 1rem;
     }
-}
 
-@media (max-width: 480px) {
-    .contact-title {
-        font-size: 2rem;
-    }
-
-    .contact-email-btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.85rem;
-        /* Ensure it wraps if absolutely needed, though shrinking font helps */
-        white-space: normal;
-        overflow-wrap: break-word;
-        word-break: break-all;
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        font-size: 16px;
-    }
-
-    .container {
-        padding: 10px;
-    }
-
+    /* Adjust generic elements if they exist */
     nav ul {
         flex-direction: column;
         gap: 10px;
     }
 
     .hero {
-        flex-direction: column;
         text-align: center;
     }
 
     img {
-        width: 100%;
+        max-width: 100%;
         height: auto;
+    }
+}
+
+/* Mobile Devices (Max Width: 480px) */
+@media (max-width: 480px) {
+    section {
+        padding: 3rem 1rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 1.5rem !important;
+        width: 100%;
+    }
+
+    .cta-btn {
+        padding: 0.8rem 2rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .profile-photo {
+        width: 200px;
+        height: 200px;
+        border-width: 4px;
+        /* Slightly thinner border */
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Skill tags optimization */
+    .skill-tag {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .projects-grid {
+        gap: 1.5rem;
+    }
+
+    .contact-title {
+        font-size: 1.8rem;
+    }
+
+    .contact-email-btn {
+        padding: 0.8rem 1rem;
+        font-size: 0.8rem;
+        width: 100%;
+        /* Full width button */
+        word-break: break-all;
     }
 }
