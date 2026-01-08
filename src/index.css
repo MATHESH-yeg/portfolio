@@ -1,0 +1,362 @@
+:root {
+    /* 
+     60-30-10 Rule Implementation 
+     60% Dominant: Deep Matte Black (#050505) - Backgrounds, Spacing
+     30% Secondary: Platinum Silver (#E5E4E2) - Typography, Borders, Glass Panels
+     10% Accent: Kawasaki Green (#00A651) - Buttons, Icons, Hovers
+  */
+
+    --dominant: #050505;
+    /* 60% */
+    --secondary: #E5E4E2;
+    /* 30% */
+    --accent: #00A651;
+    /* 10% */
+
+    --panel-bg: rgba(229, 228, 226, 0.03);
+    /* Very subtle silver tint on black */
+    --glass-border: 1px solid rgba(229, 228, 226, 0.15);
+    /* Silver borders */
+
+    --text-main: var(--secondary);
+    --text-muted: #888888;
+    /* Darker shade of secondary for hierarchy */
+
+    --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: var(--dominant);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    /* 60% Dominance: The Void */
+    background-image: radial-gradient(circle at 50% 0%, #1a1a1a, var(--dominant) 80%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+h1,
+h2,
+h3,
+h4,
+.btn-text {
+    font-family: 'Cinzel', serif;
+    /* Cinematic/Luxury Headers */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+#root {
+    width: 100%;
+}
+
+.canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+section {
+    min-height: 100vh;
+    padding: 8rem 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1 {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+    /* 30% Secondary: Silver Gradient Text */
+    background: linear-gradient(135deg, #ffffff 0%, var(--secondary) 50%, #999999 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(229, 228, 226, 0.1);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    /* 10% Accent */
+    box-shadow: 0 0 10px var(--accent);
+}
+
+p {
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    font-weight: 300;
+}
+
+.glass {
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: var(--glass-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    /* Sharper corners for luxury feel */
+    padding: 3rem;
+    transition: var(--transition);
+}
+
+.glass:hover {
+    background: rgba(30, 30, 30, 0.4);
+    border-color: var(--secondary);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 6rem 1.5rem;
+    }
+}
+
+/* New Styles */
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+}
+
+.profile-photo-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/* Profile Photo - 30% Secondary Border, 10% Accent Glow */
+.profile-photo {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(229, 228, 226, 0.1);
+    outline: 1px solid rgba(0, 166, 81, 0.3);
+    /* Accent */
+    outline-offset: 10px;
+    box-shadow:
+        0 0 0 20px rgba(0, 0, 0, 0.5),
+        0 0 50px rgba(0, 0, 0, 0.8);
+    background: var(--dominant);
+}
+
+.skill-category {
+    margin-bottom: 3rem;
+}
+
+.skill-category h3 {
+    color: var(--secondary);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(229, 228, 226, 0.1);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+/* Skill Tags - Mostly 30% Secondary to avoid overwhelming Accent */
+.skill-tag {
+    background: transparent;
+    color: var(--text-muted);
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(229, 228, 226, 0.1);
+    border-radius: 2px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.skill-tag:hover {
+    background: rgba(229, 228, 226, 0.05);
+    /* Subtle Silver BG */
+    border-color: var(--accent);
+    /* Accent only on interaction */
+    color: var(--secondary);
+    box-shadow: 0 0 15px rgba(0, 166, 81, 0.15);
+    /* Subtle Accent Glow */
+    transform: translateY(-3px);
+}
+
+.skill-icon {
+    font-size: 1.4rem;
+    color: var(--accent);
+    /* Icons are perfect for the 10% Accent rule */
+}
+
+/* Call to Action Button - The Main 10% Element */
+.cta-btn {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--secondary);
+    padding: 1rem 3rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 166, 81, 0.3), transparent);
+    transition: 0.5s;
+}
+
+.cta-btn:hover::before {
+    left: 100%;
+}
+
+.cta-btn:hover {
+    background: rgba(0, 166, 81, 0.1);
+    box-shadow: 0 0 30px rgba(0, 166, 81, 0.3);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+@media (max-width: 1024px) {
+    section {
+        padding: 6rem 2rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .profile-photo-container {
+        order: -1;
+        margin-bottom: 1rem;
+    }
+
+    .hero-tech-stack {
+        justify-content: center;
+        font-size: 1rem !important;
+        gap: 1rem !important;
+    }
+
+    .hero-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 4rem 1.5rem;
+    }
+
+    .glass {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .profile-photo {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .cta-btn {
+        padding: 0.8rem 2rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 1.5rem !important;
+    }
+
+    .profile-photo {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* Make skill tags smaller on mobile */
+    .skill-tag {
+        padding: 0.6rem 1rem;
+        font-size: 0.75rem;
+    }
+}
