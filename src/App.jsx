@@ -235,21 +235,10 @@ const App = () => {
                         className="glass"
                         style={{ textAlign: 'center', padding: '6rem 2rem', background: 'radial-gradient(circle at center, #1a1a1a 0%, #000 100%)' }}
                     >
-                        <h2 style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>Let's work together</h2>
+                        <h2 className="contact-title">Let's work together</h2>
                         <p style={{ margin: '0 auto 2.5rem', fontSize: '1.3rem', color: 'var(--text-muted)' }}>Feel free to reach out for collaborations or opportunities.</p>
 
-                        <a href="mailto:matheshwaranmathesh432@gmail.com" style={{
-                            display: 'inline-block',
-                            padding: '1.2rem 3rem',
-                            fontSize: '1.2rem',
-                            fontWeight: 600,
-                            color: '#000',
-                            backgroundColor: '#fff',
-                            borderRadius: '50px',
-                            textDecoration: 'none',
-                            marginTop: '1rem',
-                            transition: 'transform 0.3s'
-                        }}>
+                        <a href="mailto:matheshwaranmathesh432@gmail.com" className="contact-email-btn">
                             matheshwaranmathesh432@gmail.com
                         </a>
                     </motion.div>
