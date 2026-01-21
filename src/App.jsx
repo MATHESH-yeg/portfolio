@@ -87,7 +87,8 @@ const App = () => {
         {
             title: "E-Commerce Website",
             desc: "React-based application with cart, payment, and order workflow.",
-            tags: ["React", "Payment Gateway"]
+            tags: ["React", "Payment Gateway"],
+            link: "https://grocery-shop-red-delta.vercel.app"
         },
         {
             title: "AI Chatbot (Valtrix)",
@@ -144,7 +145,7 @@ const App = () => {
                             </p>
 
                             <div className="hero-actions" style={{ display: 'flex', gap: '2rem', marginTop: '2rem', alignItems: 'center' }}>
-                                <a href="#contact" className="cta-btn" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                <a href="https://drive.google.com/file/d/1Url1raNnQtz2GDLR540Ic80eXmctKhSy/view?usp=drive_link" className="cta-btn" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                     Resume <ArrowRight size={18} />
                                 </a>
                                 <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
@@ -205,7 +206,14 @@ const App = () => {
                                 style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
                             >
                                 <div>
-                                    <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', fontWeight: 700 }}>{project.title}</h3>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                                        <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', fontWeight: 700 }}>{project.title}</h3>
+                                        {project.link && (
+                                            <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', transition: '0.3s' }}>
+                                                <ExternalLink size={24} />
+                                            </a>
+                                        )}
+                                    </div>
                                     <p style={{ fontSize: '1.1rem', marginBottom: '2rem', color: 'var(--text-muted)' }}>{project.desc}</p>
                                 </div>
                                 <div className="skill-tags" style={{ gap: '0.8rem' }}>
